@@ -13,7 +13,7 @@ from matplotlib import pylab
 
 
 Ncorridas = 10
-list1 = [2, 5, 10,12, 15, 20,30, 40, 45, 50, 55,60, 75, 100,125, 160, 200,250, 350, 500,600,1000,2000,5000]
+list1 = [2, 5, 10,12, 15, 20,30, 40, 45, 50, 55,60, 75, 100,125, 160, 200,250, 350, 500,600]
 names = ["PETSc_Sparse", "PETSc_LLena","A_invB_spSolve.txt","A_invB_spSolve_symmetric.txt",
          "A_invB_spSolve_pos.txt","A_invB_spSolve_pos_overwrite.txt"]
 files = [open(name,"w") for name in names]
@@ -201,4 +201,4 @@ plt.legend(["PETSc_Sparse","PETSc_LLena","A_invB_spSolve.txt","A_invB_spSolve_sy
 plt.title("Rendimiento")
 
 plt.tight_layout()
-plt.show()
+plt.savefig("Result_plot")
