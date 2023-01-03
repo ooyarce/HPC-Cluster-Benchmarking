@@ -4,7 +4,7 @@ petsc4py.init(sys.argv)
 from petsc4py import PETSc
 from matplotlib import pylab
 
-def sparse(n):
+def MATRIX_MPI(n):
 	A = PETSc.Mat().createAIJ([n, n]) # AIJ represents sparse matrix
 	A.setUp()
 	for j in range(n-1):
