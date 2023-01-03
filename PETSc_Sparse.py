@@ -48,8 +48,3 @@ def MATRIX_MPIB(n,b):
 	A.assemble()
 	return A
 
-for i in range(9):
-	n = 10
-	b = i
-	a = MATRIX_MPIB(n,b)
-	print(a.getValues(range(n), range(n)))
