@@ -35,8 +35,9 @@ for N in list1:
         #método 1
         pos = 0
         for bandwitch in Bandwitch:
+            t1 = perf_counter()
             A = MATRIX_MPIB(N,bandwitch)
-
+            t2 = perf_counter()
             b = PETSc.Vec().createMPI(N) # creating a vector
             #b.setValues(range(N), range(1,N+1)) # assigning values to the vector
 
@@ -48,18 +49,19 @@ for N in list1:
             # Allow for solver choice to be set from command line with -ksp_type <solver>.
             ksp.setFromOptions()
             #print ('\\n Solving with:', ksp.getType()) # prints the type of solver
-            t1 = perf_counter()
+            
             # Solve!
             ksp.solve(b, x) 
 
-            t2 = perf_counter()
+            
             dt = t2-t1
             dts[i][pos] = dt
             pos+=1
 
         #método 2
+        t3 = perf_counter()
         A = llena(N)
-
+        t4 = perf_counter()
         b = PETSc.Vec().createMPI(N) # creating a vector
         #b.setValues(range(N), range(1,N+1)) # assigning values to the vector
 
@@ -71,11 +73,11 @@ for N in list1:
         # Allow for solver choice to be set from command line with -ksp_type <solver>.
         ksp.setFromOptions()
         #print ('\\n Solving with:', ksp.getType()) # prints the type of solver
-        t3 = perf_counter()
+        
         # Solve!
         ksp.solve(b, x) 
 
-        t4 = perf_counter()
+        
         dt2 = t4-t3
         dts[i][pos] = dt2
             
@@ -116,7 +118,7 @@ if rank == 0:
     plt.xlabel("Tamaño de la matriz")
     plt.ylabel("Tiempo Transcurrido (s)")
     plt.legend([f"Sparse_MPI1{nnodos}x{ncores}.txt",f"Sparse_MPI2{nnodos}x{ncores}.txt",f"Sparse_MPI3{nnodos}x{ncores}.txt",f"Dense_MPI{nnodos}x{ncores}.txt"],loc = 'upper left')
-    plt.title(f"Rendimiento {nnodos}nodos-{ncores}nucleos")
+    plt.title(f"Ensamblado {nnodos}nodos-{ncores}nucleos")
     plt.tight_layout()
     plt.show()
-    plt.savefig(f"Plot_result{nnodos}x{ncores}")
+    plt.savefig(f"Assambly{nnodos}x{ncores}")
