@@ -47,4 +47,17 @@ def MATRIX_MPIB(n,b):
 			j+=1
 	A.assemble()
 	return A
+def list1():
+	list1 = []
+	for i in range(10,101,10):
+	    list1.append(i)
+
+	for i in range(125,1001,25):
+	    list1.append(i)
+
+	for i in range(1100,2001,100):
+	    list1.append(i)
+	return list1
+
+
 
