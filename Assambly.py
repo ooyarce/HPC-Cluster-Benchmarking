@@ -36,7 +36,6 @@ for N in Nlist:
             pos+=1
 
     dts_mean,dtd_mean = [np.mean(dts[:,j]) for j in range(len(Bandwidth))],[np.mean(dtd[:,j]) for j in range(len(Bandwidth))]
-    print(f"Trabajando con {Nnodes} nodos y {Ncores} nucleos\nlen = {len(Bandwidth)}, N = {N}\n")
     if rank == 0:
         for b in range(Nbandwidth):
             files[iterator].write(f"{Bandwidth[b]} {dts_mean[i]}\n")
