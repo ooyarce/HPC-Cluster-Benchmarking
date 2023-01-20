@@ -1,4 +1,3 @@
-
 import petsc4py
 import sys
 petsc4py.init(sys.argv)
@@ -65,4 +64,3 @@ def NAMES(NList,Ncores,Nnodes):
 		names.append(f'Dense{N}_{Ncores}x{Nnodes}.txt')
 
 	return names
-

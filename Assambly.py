@@ -1,7 +1,7 @@
 import numpy as np 
 import petsc4py
 from time import perf_counter
-from PETSc_Funcs import *
+from petsc_funcs import *
 from mpi4py import MPI
 petsc4py.init(sys.argv)
 from petsc4py import PETSc
