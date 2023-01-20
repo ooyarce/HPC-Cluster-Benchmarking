@@ -1,3 +1,4 @@
+
 import petsc4py
 import sys
 petsc4py.init(sys.argv)
@@ -47,17 +48,9 @@ def MATRIX_MPIB(n,b):
 			j+=1
 	A.assemble()
 	return A
-def list1():
+
+def list1(N):
 	list1 = []
-	for i in range(10,101,10):
-	    list1.append(i)
-
-	for i in range(125,1001,25):
-	    list1.append(i)
-
-	for i in range(1100,2001,100):
+	for i in range(10,N,int(N/20)):
 	    list1.append(i)
 	return list1
-
-
-

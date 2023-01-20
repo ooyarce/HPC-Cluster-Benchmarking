@@ -5,7 +5,7 @@ from time import perf_counter
 import matplotlib.pyplot as plt
 import os 
 
-path = 'C:/Users/oioya/OneDrive/Escritorio/Cluster-CPU-Amd-Ryzen-9-5950-Benchmarking/Results/Text Files/Assambly'
+path = 'C:/Users/oioya/OneDrive/Escritorio/Cluster-CPU-Amd-Ryzen-9-5950-Benchmarking/Results/Text Files/Assambly/Sparse_Conclusions/Nodes_2/Sparse2'
 list1 = [2, 5, 10,12, 15, 20,30, 40, 45, 50, 55,60, 75, 100,125, 160, 200,250, 350, 500,600, 800,1000,2000]
 names = os.listdir(path)
 
