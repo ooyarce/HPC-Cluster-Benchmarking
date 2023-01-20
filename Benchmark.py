@@ -15,10 +15,10 @@ comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 
 
-nnodos = 8
-ncores = 32
+nnodos = 1
+ncores = 6
 Ncorridas = 10
-list1 = [2, 5, 10,12, 15, 20,30, 40, 45, 50, 55,60, 75, 100,125, 160, 200,250, 350, 500,600,2000,4000,8000,16000,32000,64000,120000]
+list1 = [2, 5, 10,12, 15, 20,30, 40, 45, 50, 55,60, 75, 100,125, 160, 200,250, 350, 500,600,2000]#,4000,8000,16000,32000,64000,120000]
 names = [f"LLena_MPI{nnodos}x{ncores}.txt"]
 files = [open(name,"w") for name in names]
 print(f"Trabajando con {nnodos} nodos y {ncores} nucleos")
