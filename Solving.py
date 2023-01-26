@@ -12,7 +12,7 @@ Nnodes = 2
 Ncores = 2
 Nruns = 10
 Nbandwidth = 100
-Nlist = [500,1000,2000]
+Nlist = [500,800,1500]
 iterator = 0 
 names = NAMES(Nlist,Ncores,Nnodes)
 files = [open(name,"w") for name in names]
@@ -23,13 +23,25 @@ for N in Nlist:
     for i in range(Nruns):
         pos = 0
         for b in Bandwidth:
+            A1 = MATRIX_MPIB(N,b)
+            v1 = PETSc.Vec().createSeq(N)
+            x1 = PETSc.Vec().createSeq(N)
+            ksp = PETSc.KSP().create()
+
             t1 = perf_counter()
-            A = MATRIX_MPIB(N,b)
+            ksp.setOperators(A1)
+            ksp.solve(v1,x1)
             t2 = perf_counter()
             dts[i][pos] = t2-t1
             
+            A2 = MATRIX_DENSE(N,b)
+            v2 = PETSc.Vec().createSeq(N)
+            x2 = PETSc.Vec().createSeq(N)
+            ksp = PETSc.KSP().create()
+            
             t3 = perf_counter()
-            A = MATRIX_DENSE(N,b)
+            ksp.setOperators(A2)
+            ksp.solve(v2,x2)
             t4 = perf_counter()
             dtd[i][pos] = t4-t3
             
