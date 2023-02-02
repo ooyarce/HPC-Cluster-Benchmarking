@@ -9,7 +9,7 @@ comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 
 Nnodes = 2
-Ncores = 2
+Ncores = 8
 Nruns = 10
 Nbandwidth = 100
 Nlist = [500,800,1500]

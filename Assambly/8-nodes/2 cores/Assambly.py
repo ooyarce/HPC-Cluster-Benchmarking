@@ -8,7 +8,7 @@ from petsc4py import PETSc
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 
-Nnodes = 2
+Nnodes = 8
 Ncores = 2
 Nruns = 10
 Nbandwidth = 100
